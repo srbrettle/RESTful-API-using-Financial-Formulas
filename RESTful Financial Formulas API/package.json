@@ -1,0 +1,48 @@
+{
+  "name": "codechavez",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "webpack": "webpack --progress",
+    "serve": "webpack-dev-server --host localhost --port 3000 --inline --progress",
+    "compile": "tsc --rootDir src --outDir wwwroot",
+    "delete": "del wwwroot\\*.* /q /s",
+    "distro": "npm run compile && npm run webpack"
+  },
+  "dependencies": {
+    "@angular/animations": "~5.2.5",
+    "@angular/common": "~5.2.5",
+    "@angular/compiler": "~5.2.5",
+    "@angular/core": "~5.2.5",
+    "@angular/forms": "~5.2.5",
+    "@angular/http": "~5.2.5",
+    "@angular/platform-browser": "~5.2.5",
+    "@angular/platform-browser-dynamic": "~5.2.5",
+    "@angular/router": "~5.2.5",
+    "core-js": "~2.5.3",
+    "reflect-metadata": "~0.1.12",
+    "rxjs": "~5.5.6",
+    "zone.js": "~0.8.20"
+  },
+  "devDependencies": {
+    "angular2-template-loader": "~0.6.2",
+    "awesome-typescript-loader": "~3.5.0",
+    "copy-webpack-plugin": "~4.4.2",
+    "css-loader": "~0.28.10",
+    "extract-text-webpack-plugin": "~3.0.2",
+    "file-loader": "~1.1.9",
+    "html-elements-webpack-plugin": "~1.0.1",
+    "html-loader": "~0.5.5",
+    "html-webpack-plugin": "~2.30.1",
+    "raw-loader": "~0.5.1",
+    "resolve-url-loader": "~2.2.1",
+    "style-loader": "~0.20.2",
+    "to-string-loader": "~1.1.5",
+    "ts-loader":  "~3.5.0",
+    "typescript": "~2.7.2",
+    "@types/node": "~8.9.4",
+    "url-loader": "~0.6.2",
+    "webpack": "~3.11.0",
+    "webpack-dev-server": "~2.11.1"
+  }
+}
