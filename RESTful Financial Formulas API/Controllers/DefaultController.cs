@@ -11,9 +11,9 @@ namespace RESTful_Financial_Formulas_API.Controllers
     public class DefaultController : Controller
     {
         [HttpGet]
-        public IEnumerable<string> Get()
+        public string Get()
         {
-            return new string[] { "Didn't", "believe", "it", "right??" };
+            return "For FinancialFormulas API -> /api/FinancialFormulas";
         }
     }
 }
