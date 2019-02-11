@@ -37,7 +37,7 @@ namespace RESTful_Financial_Formulas_API.Controllers
         /// <returns>Value from FinancialFormulas function or Error message</returns>
         [HttpGet]
         [Route("{query}/{p1}/{p2?}/{p3?}/{p4?}")]
-        public string GetResult(string query, double p1, double? p2 = null, double? p3 = null, double? p4 = null)
+        public string GetResult(string query, decimal p1, decimal? p2 = null, decimal? p3 = null, decimal? p4 = null)
         {
             var listOfMethods = GetFinancialFormulasMethods();
 
@@ -112,19 +112,19 @@ namespace RESTful_Financial_Formulas_API.Controllers
             object[] parameters;
             if (p2 == null)
             {
-                parameters = new object[] { double.Parse(p1) };
+                parameters = new object[] { decimal.Parse(p1) };
             }
             else if (p3 == null)
             {
-                parameters = new object[] { double.Parse(p1), double.Parse(p2) };
+                parameters = new object[] { decimal.Parse(p1), decimal.Parse(p2) };
             }
             else if (p4 == null)
             {
-                parameters = new object[] { double.Parse(p1), double.Parse(p2), double.Parse(p3) };
+                parameters = new object[] { decimal.Parse(p1), decimal.Parse(p2), decimal.Parse(p3) };
             }
             else
             {
-                parameters = new object[] { double.Parse(p1), double.Parse(p2), double.Parse(p3), double.Parse(p4) };
+                parameters = new object[] { decimal.Parse(p1), decimal.Parse(p2), decimal.Parse(p3), decimal.Parse(p4) };
             }
 
             // Call the FinancialFormulas function
@@ -208,7 +208,7 @@ namespace RESTful_Financial_Formulas_API.Controllers
         private string CallFormulaFunction(string query, object[] parameters)
         {
             try
-            {               
+            {
                 // Use reflection to call function from FinancialFormulas
                 Assembly info = typeof(FinancialFormulas).Assembly;
                 Type t = info.GetType("srbrettle.FinancialFormulas.FinancialFormulas");
@@ -217,8 +217,10 @@ namespace RESTful_Financial_Formulas_API.Controllers
 
                 return result.ToString();
             }
-            catch { }
-            return "Error, check query name and parameter values";
+            catch (Exception e)
+            {
+                return "Error, check query name and parameter values \r\n" + e.Message;
+            }
         }
 
         /// <summary>
